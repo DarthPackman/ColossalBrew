@@ -1,0 +1,90 @@
+[gd_scene load_steps=12 format=3 uid="uid://dacw07kqffus5"]
+
+[ext_resource type="Script" path="res://scripts/bat.gd" id="1_11lcf"]
+[ext_resource type="Texture2D" uid="uid://ccf2pxtwjirfv" path="res://assets/sprites/Bat_Sprites.png" id="1_dud7y"]
+[ext_resource type="PackedScene" uid="uid://d2pcka1yn6k04" path="res://killzone.tscn" id="2_uexfd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqub6"]
+atlas = ExtResource("1_dud7y")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wyxi5"]
+atlas = ExtResource("1_dud7y")
+region = Rect2(16, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u57oi"]
+atlas = ExtResource("1_dud7y")
+region = Rect2(32, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wogd5"]
+atlas = ExtResource("1_dud7y")
+region = Rect2(48, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tnk7"]
+atlas = ExtResource("1_dud7y")
+region = Rect2(64, 0, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_217ng"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqub6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wyxi5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u57oi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wogd5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tnk7")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vtrdu"]
+size = Vector2(10, 7)
+
+[sub_resource type="GDScript" id="GDScript_np4c1"]
+script/source = "extends CollisionShape2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="Bat" type="Node2D"]
+script = ExtResource("1_11lcf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_217ng")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.326945
+
+[node name="Killzone" parent="." instance=ExtResource("2_uexfd")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_vtrdu")
+script = SubResource("GDScript_np4c1")
+
+[node name="Raycast Right" type="RayCast2D" parent="."]
+position = Vector2(0, -16)
+target_position = Vector2(10, 0)
+
+[node name="Raycast Left" type="RayCast2D" parent="."]
+position = Vector2(0, -16)
+target_position = Vector2(-10, 0)
