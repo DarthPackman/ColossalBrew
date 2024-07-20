@@ -1,14 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://b8kf0s1rf6f4o"]
+[gd_scene load_steps=11 format=3 uid="uid://b8kf0s1rf6f4o"]
 
 [ext_resource type="PackedScene" uid="uid://6gf80lsw7as" path="res://player.tscn" id="1_ae0mh"]
 [ext_resource type="Texture2D" uid="uid://bv13rr2dxxxda" path="res://assets/sprites/Platformer.png" id="2_bmsxw"]
 [ext_resource type="Texture2D" uid="uid://c3qrx71yppj03" path="res://assets/sprites/PlatformerBackground.png" id="3_6k7n0"]
 [ext_resource type="PackedScene" uid="uid://d2pcka1yn6k04" path="res://killzone.tscn" id="3_qne7x"]
 [ext_resource type="PackedScene" uid="uid://dacw07kqffus5" path="res://bat.tscn" id="5_rfrgp"]
-[ext_resource type="PackedScene" uid="uid://b1numqjk52hs6" path="res://Turtle/Foot.tscn" id="6_5fl6h"]
-[ext_resource type="PackedScene" uid="uid://dstr0txjk57ng" path="res://Turtle/Toe.tscn" id="6_880ix"]
-[ext_resource type="PackedScene" uid="uid://c5qbtu16y7ns1" path="res://Turtle/Calf.tscn" id="6_mxube"]
-[ext_resource type="PackedScene" uid="uid://tftm4yllgse4" path="res://Turtle/BackLeg.tscn" id="9_v72ej"]
 [ext_resource type="PackedScene" uid="uid://bvvtgeeva4ej5" path="res://Turtle/Turtle.tscn" id="10_0y7ae"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_egmx1"]
@@ -757,19 +753,8 @@ shape = SubResource("WorldBoundaryShape2D_lr4it")
 [node name="Bat" parent="." instance=ExtResource("5_rfrgp")]
 position = Vector2(-77, 94)
 
-[node name="HUD" type="CanvasLayer" parent="."]
-
-[node name="Toe" parent="." instance=ExtResource("6_880ix")]
-position = Vector2(91, 74)
-
-[node name="Foot" parent="." instance=ExtResource("6_5fl6h")]
-position = Vector2(214, 57)
-
-[node name="Calf" parent="." instance=ExtResource("6_mxube")]
-position = Vector2(387, 15)
-
-[node name="BackLeg" parent="." instance=ExtResource("9_v72ej")]
-position = Vector2(612, -77)
-
 [node name="Turtle" parent="." instance=ExtResource("10_0y7ae")]
 position = Vector2(-559, -102)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
