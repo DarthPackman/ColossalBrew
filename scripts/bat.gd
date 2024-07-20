@@ -4,7 +4,6 @@ const SPEED = 50
 var direction = 1
 
 @onready var animated_sprite = $AnimatedSprite2D
-
 @onready var raycast_right = $"Raycast Right"
 @onready var raycast_left = $"Raycast Left"
 
