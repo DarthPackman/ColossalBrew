@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5qbtu16y7ns1"]
+
+[ext_resource type="Texture2D" uid="uid://dv3jiboq8ns7c" path="res://assets/sprites/Food.png" id="1_d7ewd"]
+[ext_resource type="PackedScene" uid="uid://b1numqjk52hs6" path="res://Turtle/Foot.tscn" id="2_rey3y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_560cn"]
+size = Vector2(84, 175)
+
+[node name="Calf" type="AnimatableBody2D"]
+position = Vector2(1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -7)
+scale = Vector2(2.5, 10)
+texture = ExtResource("1_d7ewd")
+region_enabled = true
+region_rect = Rect2(234, 54, 54, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_560cn")
+one_way_collision = true
+
+[node name="Foot" parent="." instance=ExtResource("2_rey3y")]
+position = Vector2(0, 41)

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1numqjk52hs6"]
+
+[ext_resource type="Texture2D" uid="uid://dv3jiboq8ns7c" path="res://assets/sprites/Food.png" id="1_qawh7"]
+[ext_resource type="PackedScene" uid="uid://dstr0txjk57ng" path="res://Turtle/Toe.tscn" id="2_nhog8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ullej"]
+size = Vector2(76, 79)
+
+[node name="Foot" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 5)
+texture = ExtResource("1_qawh7")
+region_enabled = true
+region_rect = Rect2(234, 55, 54, 17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_ullej")
+one_way_collision = true
+
+[node name="Toe" parent="." instance=ExtResource("2_nhog8")]
+position = Vector2(0, 21)
+
+[node name="Toe2" parent="." instance=ExtResource("2_nhog8")]
+position = Vector2(30, 21)

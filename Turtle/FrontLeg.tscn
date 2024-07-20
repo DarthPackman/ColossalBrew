@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbka2cbxnc3ja"]
+
+[ext_resource type="Texture2D" uid="uid://dv3jiboq8ns7c" path="res://assets/sprites/Food.png" id="1_utqm1"]
+[ext_resource type="PackedScene" uid="uid://c5qbtu16y7ns1" path="res://Turtle/Calf.tscn" id="2_uq73x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gy703"]
+size = Vector2(114, 81)
+
+[node name="FrontLeg" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 5)
+texture = ExtResource("1_utqm1")
+region_enabled = true
+region_rect = Rect2(234, 54, 54, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_gy703")
+one_way_collision = true
+
+[node name="Calf" parent="." instance=ExtResource("2_uq73x")]
+position = Vector2(43, 89)
