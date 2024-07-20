@@ -4,13 +4,22 @@ const SPEED = 150.0
 const JUMP_VELOCITY = -275.0
 const ROLL_VELOCITY = 250.0  
 
+var health = 5
+var attack_damage = 3
+
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var collision_shape = $CollisionShape2D  
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_dodging = false
-var dodge_timer = 0.2  # Duration of the dodge roll
+var dodge_timer = 0.25  # Duration of the dodge roll
 var dodge_time_left = 0.0
+
+var invincible = false
+var invincible_duration = 0.25
+var invincible_time_left = 0.0
+var controls_enabled = true
+
 
 func _physics_process(delta):
 	# Handle dodge roll timing
@@ -19,17 +28,24 @@ func _physics_process(delta):
 		if dodge_time_left <= 0:
 			is_dodging = false
 			collision_layer = 1 | 2
+			
+	if invincible:
+		invincible_time_left -= delta
+		if invincible_time_left <= 0:
+			invincible = false
+			animated_sprite.modulate = Color(1, 1, 1, 1)  # Reset sprite color
+			collision_layer = 1 | 2
 	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor() and not is_dodging:
+	if Input.is_action_just_pressed("jump") and is_on_floor() and not is_dodging and controls_enabled:
 		velocity.y = JUMP_VELOCITY
 	
 	# Handle Dodge Roll
-	if Input.is_action_just_pressed("dodge") and is_on_floor() and not is_dodging:
+	if Input.is_action_just_pressed("dodge") and is_on_floor() and not is_dodging and controls_enabled:
 		is_dodging = true
 		dodge_time_left = dodge_timer
 		animated_sprite.play("Dodge")
@@ -62,10 +78,26 @@ func _physics_process(delta):
 			animated_sprite.play("Jump")
 	
 	# Handle movement if not dodging
-	if not is_dodging:
+	if not is_dodging and controls_enabled:
 		if direction:
 			velocity.x = direction * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+func take_damage(dmg):
+	collision_layer = 1
+	invincible = true
+	invincible_time_left = invincible_duration
+	animated_sprite.modulate = Color(1, 1, 1, 0.5)
+	health -= dmg
+	animated_sprite.play("Wimper")
+	
+	if health <= 0:
+		animated_sprite.play("Death")
+		controls_enabled = false  # Disable player controls on death
+		velocity = Vector2.ZERO  # Stop player movement
+		return true
+	else:
+		return false

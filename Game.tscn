@@ -749,3 +749,5 @@ shape = SubResource("WorldBoundaryShape2D_lr4it")
 
 [node name="Bat" parent="." instance=ExtResource("5_rfrgp")]
 position = Vector2(-77, 67)
+
+[node name="HUD" type="CanvasLayer" parent="."]
