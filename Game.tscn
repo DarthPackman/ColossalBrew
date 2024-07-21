@@ -720,7 +720,7 @@ sources/2 = SubResource("TileSetAtlasSource_egmx1")
 sources/3 = SubResource("TileSetAtlasSource_c4cb0")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qp64g"]
-normal = Vector2(-0.999971, 0.00767241)
+normal = Vector2(-0.0108689, -0.999941)
 
 [node name="Game" type="Node2D"]
 
@@ -757,9 +757,9 @@ position = Vector2(5, 79)
 follow_viewport_enabled = true
 
 [node name="Killzone" parent="." instance=ExtResource("3_qne7x")]
-position = Vector2(330, 26)
 dmg = 5
+insta_death = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(-266, -13)
+position = Vector2(0, 208)
 shape = SubResource("WorldBoundaryShape2D_qp64g")
