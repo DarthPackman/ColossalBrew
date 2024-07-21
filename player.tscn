@@ -601,7 +601,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Dodge",
-"speed": 20.0
+"speed": 16.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -792,7 +792,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Run",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -916,9 +916,7 @@ script = ExtResource("1_b2ko8")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_gqry1")
-animation = &"Dodge"
-frame = 3
-frame_progress = 0.511618
+animation = &"Run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -10)
