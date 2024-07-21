@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d2pcka1yn6k04" path="res://killzone.tscn" id="3_qne7x"]
 [ext_resource type="Script" path="res://Background.gd" id="4_xkrsq"]
 [ext_resource type="PackedScene" uid="uid://dacw07kqffus5" path="res://bat.tscn" id="5_rfrgp"]
-[ext_resource type="PackedScene" uid="uid://bvvtgeeva4ej5" path="res://Turtle/Turtle.tscn" id="10_0y7ae"]
+[ext_resource type="PackedScene" uid="uid://c1phutsv4ew25" path="res://Turtle/Turtle.tscn" id="10_0y7ae"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_egmx1"]
 texture = ExtResource("2_bmsxw")
@@ -750,9 +750,6 @@ script = ExtResource("4_xkrsq")
 [node name="Bat" parent="." instance=ExtResource("5_rfrgp")]
 position = Vector2(-156, 25)
 
-[node name="Turtle" parent="." instance=ExtResource("10_0y7ae")]
-position = Vector2(5, 79)
-
 [node name="HUD" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
@@ -763,3 +760,6 @@ insta_death = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(0, 208)
 shape = SubResource("WorldBoundaryShape2D_qp64g")
+
+[node name="Turtle" parent="." instance=ExtResource("10_0y7ae")]
+position = Vector2(-8, 89)
