@@ -4,7 +4,7 @@ const SPEED = 150.0
 const JUMP_VELOCITY = -275.0
 const ROLL_VELOCITY = 250.0  
 
-var health = 5
+@export var health = 5
 var attack_damage = 3
 
 @onready var animated_sprite = $AnimatedSprite2D

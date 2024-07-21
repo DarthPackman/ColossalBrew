@@ -1,8 +1,7 @@
 extends Area2D
 
-@onready var killzone = $"."
 @onready var timer = $Timer
-var dmg = 1
+@export var dmg = 0
 var restart = false
 
 

@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://bvvtgeeva4ej5"]
+[gd_scene load_steps=11 format=3 uid="uid://bvvtgeeva4ej5"]
 
 [ext_resource type="Texture2D" uid="uid://c0qgpj4saro2d" path="res://assets/sprites/Sand.png" id="1_5w834"]
-[ext_resource type="Script" path="res://Turtle/Turtle.gd" id="1_58dlv"]
 [ext_resource type="Texture2D" uid="uid://cmltaxpdhvld2" path="res://assets/sprites/Stone.png" id="2_we2lj"]
 [ext_resource type="PackedScene" uid="uid://dbka2cbxnc3ja" path="res://Turtle/FrontLeg.tscn" id="3_vbh5e"]
 [ext_resource type="PackedScene" uid="uid://tftm4yllgse4" path="res://Turtle/BackLeg.tscn" id="4_ruaf1"]
@@ -551,6 +550,34 @@ physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_yn3uw")
 sources/3 = SubResource("TileSetAtlasSource_7t7jb")
 
+[sub_resource type="Animation" id="Animation_n4c8c"]
+length = 360.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FrontLeg:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(205, 15)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BackLeg:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-195, 15)]
+}
+
 [sub_resource type="Animation" id="Animation_vq35y"]
 resource_name = "Walk"
 length = 360.0
@@ -565,7 +592,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 59.8, 120, 180),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(200, 25), Vector2(205, 20), Vector2(205, 25), Vector2(200, 25)]
+"values": [Vector2(200, 25), Vector2(205, 15), Vector2(205, 25), Vector2(200, 25)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -577,12 +604,8 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 180, 240, 300, 360),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-200, 25), Vector2(-200, 25), Vector2(-195, 20), Vector2(-195, 25), Vector2(-200, 25)]
+"values": [Vector2(-200, 25), Vector2(-200, 25), Vector2(-195, 15), Vector2(-195, 25), Vector2(-200, 25)]
 }
-
-[sub_resource type="Animation" id="Animation_n4c8c"]
-length = 360.0
-loop_mode = 1
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0xdis"]
 _data = {
@@ -592,7 +615,6 @@ _data = {
 
 [node name="Turtle" type="AnimatedSprite2D"]
 position = Vector2(0.7297, 0)
-script = ExtResource("1_58dlv")
 
 [node name="Shell" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_rieq8")
@@ -604,10 +626,10 @@ layer_1/name = "Undershell"
 layer_1/tile_data = PackedInt32Array(65520, 65539, 4, 131056, 65539, 5, 65521, 65539, 4, 131057, 65539, 5, 65519, 3, 4, 131055, 3, 5, 15, 65539, 4, 65551, 65539, 5, 16, 131075, 4, 65552, 131075, 5, 14, 65539, 4, 65550, 65539, 5, 196594, 3, 4, 262130, 3, 5, 196595, 65539, 4, 262131, 65539, 5, 196596, 65539, 4, 262132, 65539, 5, 327669, 3, 4, 393205, 3, 5, 327670, 65539, 4, 393206, 65539, 5, 327671, 65539, 4, 393207, 65539, 5, 131083, 65539, 4, 196619, 65539, 5, 131084, 65539, 4, 196620, 65539, 5, 131085, 131075, 4, 196621, 131075, 5, 262152, 65539, 4, 327688, 65539, 5, 262153, 65539, 4, 327689, 65539, 5, 262154, 131075, 4, 327690, 131075, 5, 327672, 65539, 4, 393208, 65539, 5, 327673, 65539, 4, 393209, 65539, 5, 327674, 65539, 4, 393210, 65539, 5, 327675, 65539, 4, 393211, 65539, 5, 327676, 65539, 4, 393212, 65539, 5, 327677, 65539, 4, 393213, 65539, 5, 327678, 65539, 4, 393214, 65539, 5, 327679, 65539, 4, 393215, 65539, 5, 262144, 65539, 4, 327680, 65539, 5, 262145, 65539, 4, 327681, 65539, 5, 262146, 65539, 4, 327682, 65539, 5, 262147, 65539, 4, 327683, 65539, 5, 262148, 65539, 4, 327684, 65539, 5, 262149, 65539, 4, 327685, 65539, 5, 262150, 65539, 4, 327686, 65539, 5, 262151, 65539, 4, 327687, 65539, 5, 65522, 65539, 4, 131058, 65539, 4, 65523, 65539, 4, 131059, 65539, 4, 65524, 65539, 4, 131060, 65539, 4, 65525, 65539, 4, 131061, 65539, 4, 65526, 65539, 4, 131062, 65539, 4, 65527, 65539, 4, 131063, 65539, 4, 65528, 65539, 4, 131064, 65539, 4, 65529, 65539, 4, 131065, 65539, 4, 65530, 65539, 4, 131066, 65539, 4, 65531, 65539, 4, 131067, 65539, 4, 65532, 65539, 4, 131068, 65539, 4, 65533, 65539, 4, 131069, 65539, 4, 65534, 65539, 4, 131070, 65539, 4, 65535, 65539, 4, 131071, 65539, 4, 0, 65539, 4, 65536, 65539, 4, 1, 65539, 4, 65537, 65539, 4, 2, 65539, 4, 65538, 65539, 4, 3, 65539, 4, 65539, 65539, 4, 4, 65539, 4, 65540, 65539, 4, 5, 65539, 4, 65541, 65539, 4, 6, 65539, 4, 65542, 65539, 4, 7, 65539, 4, 65543, 65539, 4, 8, 65539, 4, 65544, 65539, 4, 9, 65539, 4, 65545, 65539, 4, 10, 65539, 4, 65546, 65539, 4, 11, 65539, 4, 65547, 65539, 4, 12, 65539, 4, 65548, 65539, 4, 13, 65539, 4, 65549, 65539, 4, 196597, 65539, 4, 262133, 65539, 4, 196598, 65539, 4, 262134, 65539, 4, 196599, 65539, 4, 262135, 65539, 4, 196600, 65539, 4, 262136, 65539, 4, 196601, 65539, 4, 262137, 65539, 4, 196602, 65539, 4, 262138, 65539, 4, 196603, 65539, 4, 262139, 65539, 4, 196604, 65539, 4, 262140, 65539, 4, 196605, 65539, 4, 262141, 65539, 4, 196606, 65539, 4, 262142, 65539, 4, 196607, 65539, 4, 262143, 65539, 4, 131072, 65539, 4, 196608, 65539, 4, 131073, 65539, 4, 196609, 65539, 4, 131074, 65539, 4, 196610, 65539, 4, 131075, 65539, 4, 196611, 65539, 4, 131076, 65539, 4, 196612, 65539, 4, 131077, 65539, 4, 196613, 65539, 4, 131078, 65539, 4, 196614, 65539, 4, 131079, 65539, 4, 196615, 65539, 4, 131080, 65539, 4, 196616, 65539, 4, 131081, 65539, 4, 196617, 65539, 4, 131082, 65539, 4, 196618, 65539, 4)
 
 [node name="FrontLeg" parent="." instance=ExtResource("3_vbh5e")]
-position = Vector2(200, 25)
+position = Vector2(205, 15)
 
 [node name="BackLeg" parent="." instance=ExtResource("4_ruaf1")]
-position = Vector2(-200, 25)
+position = Vector2(-195, 15)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
