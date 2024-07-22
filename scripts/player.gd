@@ -15,6 +15,9 @@ var is_dodging = false
 var dodge_timer = 0.25  # Duration of the dodge roll
 var dodge_time_left = 0.0
 
+var is_attacking = false
+
+
 var invincible = false
 var invincible_duration = 0.25
 var invincible_time_left = 0.0
@@ -44,6 +47,10 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and is_on_floor() and not is_dodging and controls_enabled:
 		velocity.y = JUMP_VELOCITY
 	
+	if Input.is_action_just_pressed("attack") and is_on_floor() and not is_dodging and controls_enabled:
+		is_attacking = true
+		animated_sprite.play("BackSwing")
+	
 	# Handle Dodge Roll
 	if Input.is_action_just_pressed("dodge") and is_on_floor() and not is_dodging and controls_enabled:
 		is_dodging = true
@@ -68,7 +75,7 @@ func _physics_process(delta):
 		animated_sprite.flip_h = true
 	
 	# Only change the animation if not dodging
-	if not is_dodging:
+	if not is_dodging and not is_attacking:
 		if is_on_floor():
 			if direction == 0:
 				animated_sprite.play("Idle")

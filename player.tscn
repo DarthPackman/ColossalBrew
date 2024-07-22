@@ -504,9 +504,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_58r66")
 }],
-"loop": true,
+"loop": false,
 "name": &"BackSwing",
-"speed": 5.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -916,7 +916,9 @@ script = ExtResource("1_b2ko8")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_gqry1")
-animation = &"Run"
+animation = &"BackSwing"
+frame = 9
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -10)
