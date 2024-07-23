@@ -298,20 +298,20 @@ sources/0 = SubResource("TileSetAtlasSource_xwogw")
 
 [node name="Game" type="Node2D"]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="Mountain Parallax" type="ParallaxBackground" parent="."]
 scroll_limit_end = Vector2(0, 208)
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Mountain Parallax"]
 texture_filter = 1
 motion_scale = Vector2(0, 0)
 motion_mirroring = Vector2(320, 0)
 
-[node name="MountainFallsBackgroundLush" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+[node name="MountainFallsBackgroundLush" type="Sprite2D" parent="Mountain Parallax/ParallaxLayer"]
 texture_repeat = 2
 texture = ExtResource("4_sb80q")
 centered = false
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Mountain Parallax"]
 texture_filter = 1
 position = Vector2(0, 97)
 motion_scale = Vector2(0.25, 0.25)
@@ -319,12 +319,12 @@ motion_mirroring = Vector2(320, 0)
 script = ExtResource("2_br8ae")
 BACKGROUND_SPEED = -5
 
-[node name="MountainFallsDistantLands1Lush" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+[node name="MountainFallsDistantLands1Lush" type="Sprite2D" parent="Mountain Parallax/ParallaxLayer2"]
 texture_repeat = 2
 texture = ExtResource("5_mmxck")
 centered = false
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Mountain Parallax"]
 texture_filter = 1
 position = Vector2(0, 144)
 motion_scale = Vector2(0.5, 0.5)
@@ -332,14 +332,14 @@ motion_mirroring = Vector2(320, 0)
 script = ExtResource("7_kuxtd")
 BACKGROUND_SPEED = -10
 
-[node name="MountainFallsDistantLands2Lush" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+[node name="MountainFallsDistantLands2Lush" type="Sprite2D" parent="Mountain Parallax/ParallaxLayer3"]
 texture_repeat = 2
 texture = ExtResource("6_51j0d")
 centered = false
 
 [node name="Player" parent="." instance=ExtResource("1_ae0mh")]
 z_index = 5
-position = Vector2(2, 15)
+position = Vector2(2, 64)
 collision_layer = 2
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -347,13 +347,13 @@ limit_bottom = 100
 
 [node name="Bat" parent="." instance=ExtResource("5_rfrgp")]
 light_mask = 3
-position = Vector2(-97, 21)
+position = Vector2(-97, 68)
 
 [node name="HUD" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
 [node name="Killzone" parent="." instance=ExtResource("3_qne7x")]
-position = Vector2(0, 88)
+position = Vector2(0, 100)
 dmg = 5
 insta_death = true
 
