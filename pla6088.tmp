@@ -906,7 +906,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nl73t"]
-size = Vector2(11, 12)
+size = Vector2(34, 12)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_20gcd"]
 radius = 4.0
@@ -920,14 +920,12 @@ script = ExtResource("1_b2ko8")
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_gqry1")
 animation = &"BackSwing"
-frame = 9
-frame_progress = 1.0
 
 [node name="AttackArea" type="Area2D" parent="AnimatedSprite2D" groups=["Sword"]]
 position = Vector2(0, 15)
 
 [node name="AttackBox" type="CollisionShape2D" parent="AnimatedSprite2D/AttackArea"]
-position = Vector2(11.5, -9)
+position = Vector2(23, -10)
 shape = SubResource("RectangleShape2D_nl73t")
 disabled = true
 
@@ -935,7 +933,7 @@ disabled = true
 position = Vector2(0, 15)
 
 [node name="AttackBox2" type="CollisionShape2D" parent="AnimatedSprite2D/AttackArea2"]
-position = Vector2(-12, -9)
+position = Vector2(-32, -10)
 shape = SubResource("RectangleShape2D_nl73t")
 disabled = true
 
