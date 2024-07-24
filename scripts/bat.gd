@@ -15,10 +15,10 @@ var is_dead = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if raycast_right.is_colliding() and not raycast_right.get_collision_mask_value(1):
+	if raycast_right.is_colliding():
 		animated_sprite.flip_h = true
 		direction = -1
-	if raycast_left.is_colliding() and not raycast_right.get_collision_mask_value(1):
+	if raycast_left.is_colliding():
 		animated_sprite.flip_h = false
 		direction = 1
 	position.x += direction * SPEED * delta

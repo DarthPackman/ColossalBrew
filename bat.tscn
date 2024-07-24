@@ -116,8 +116,8 @@ frame = 4
 frame_progress = 1.0
 
 [node name="hurtbox" parent="." groups=["Enemy"] instance=ExtResource("2_uexfd")]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 4
+collision_mask = 1
 dmg = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
@@ -127,11 +127,13 @@ script = SubResource("GDScript_np4c1")
 
 [node name="Raycast Right" type="RayCast2D" parent="."]
 position = Vector2(0, -16)
-target_position = Vector2(10, 0)
+target_position = Vector2(11, 0)
+collision_mask = 2
 
 [node name="Raycast Left" type="RayCast2D" parent="."]
 position = Vector2(0, -16)
-target_position = Vector2(-10, 0)
+target_position = Vector2(-11, 0)
+collision_mask = 2
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]

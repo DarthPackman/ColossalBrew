@@ -27,7 +27,7 @@ var attack_time_left = 0.0
 var attack_time = 0.25
 
 var invincible = false
-var invincible_duration = 0.25
+var invincible_duration = 0.5
 var invincible_time_left = 0.0
 var controls_enabled = true
 
@@ -43,7 +43,8 @@ func _physics_process(delta):
 		dodge_time_left -= delta
 		if dodge_time_left <= 0:
 			is_dodging = false
-			collision_layer = 1 | 2
+			set_collision_layer_value(1, true)
+			set_collision_layer_value(5, false)
 
 	if is_attacking:
 		attack_time_left -= delta
@@ -58,7 +59,8 @@ func _physics_process(delta):
 		if invincible_time_left <= 0:
 			invincible = false
 			animated_sprite.modulate = Color(1, 1, 1, 1)  # Reset sprite color
-			collision_layer = 1 | 2
+			set_collision_layer_value(1, true)
+			set_collision_layer_value(5, false)
 
 	# Add the gravity.
 	if not is_on_floor():
@@ -99,7 +101,8 @@ func _physics_process(delta):
 		dodge_time_left = dodge_timer
 		animated_sprite.play("Dodge")
 		# Disable collision with enemies but not with the map
-		collision_layer = 1
+		set_collision_layer_value(1, false)
+		set_collision_layer_value(5, true)
 
 		if animated_sprite.flip_h:
 			velocity.x = -ROLL_VELOCITY
