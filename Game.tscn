@@ -1,13 +1,13 @@
 [gd_scene load_steps=14 format=3 uid="uid://b8kf0s1rf6f4o"]
 
 [ext_resource type="PackedScene" uid="uid://6gf80lsw7as" path="res://player.tscn" id="1_ae0mh"]
-[ext_resource type="Script" path="res://BackgroundLayer.gd" id="2_br8ae"]
+[ext_resource type="Script" path="res://scripts/BackgroundLayer.gd" id="2_br8ae"]
 [ext_resource type="PackedScene" uid="uid://d2pcka1yn6k04" path="res://killzone.tscn" id="3_qne7x"]
 [ext_resource type="Texture2D" uid="uid://b6usp5nmmr0w6" path="res://assets/sprites/mountain/Backgrounds LUSH/Mountain_Falls_Background_LUSH.png" id="4_sb80q"]
 [ext_resource type="Texture2D" uid="uid://c4v7x4l2na2gj" path="res://assets/sprites/mountain/Backgrounds LUSH/Mountain_Falls_distant_lands_1_LUSH.png" id="5_mmxck"]
 [ext_resource type="PackedScene" uid="uid://dacw07kqffus5" path="res://bat.tscn" id="5_rfrgp"]
 [ext_resource type="Texture2D" uid="uid://bt5ijvpv76nip" path="res://assets/sprites/mountain/Backgrounds LUSH/Mountain_Falls_distant_lands_2_LUSH.png" id="6_51j0d"]
-[ext_resource type="Script" path="res://ForegroundLayer.gd" id="7_kuxtd"]
+[ext_resource type="Script" path="res://Camera2D.gd" id="6_fl818"]
 [ext_resource type="Texture2D" uid="uid://dkn33vy3awpvm" path="res://assets/sprites/mountain/Mountain_Falls_main_layer_LUSH.png" id="9_usgr3"]
 [ext_resource type="PackedScene" uid="uid://b4plpm52ycbli" path="res://magicSpell.tscn" id="10_5uf2g"]
 
@@ -330,7 +330,7 @@ texture_filter = 1
 position = Vector2(0, 144)
 motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(320, 0)
-script = ExtResource("7_kuxtd")
+script = ExtResource("2_br8ae")
 BACKGROUND_SPEED = -10
 
 [node name="MountainFallsDistantLands2Lush" type="Sprite2D" parent="Mountain Parallax/ParallaxLayer3"]
@@ -344,11 +344,18 @@ position = Vector2(2, 64)
 collision_layer = 2
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-limit_bottom = 100
+scale = Vector2(-0.888885, -0.066667)
+limit_bottom = 75
+script = ExtResource("6_fl818")
+randomStrength = 15.0
+
+[node name="Timer" type="Timer" parent="Player/Camera2D"]
+wait_time = 15.0
+autostart = true
 
 [node name="Bat" parent="." instance=ExtResource("5_rfrgp")]
 light_mask = 3
-position = Vector2(-97, 68)
+position = Vector2(-97, 69)
 
 [node name="HUD" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -362,10 +369,12 @@ insta_death = true
 shape = SubResource("WorldBoundaryShape2D_qp64g")
 
 [node name="TEMP" type="TileMap" parent="."]
-position = Vector2(-4, 20)
+position = Vector2(0, 20)
 tile_set = SubResource("TileSet_88ihr")
 format = 2
 layer_0/tile_data = PackedInt32Array(262134, 0, 3, 262135, 65536, 3, 262136, 65536, 3, 262137, 65536, 3, 262138, 65536, 3, 262139, 65536, 3, 262140, 65536, 3, 262141, 65536, 3, 262142, 65536, 3, 262143, 65536, 3, 196608, 65536, 3, 196609, 65536, 3, 196610, 65536, 3, 196611, 65536, 3, 196612, 65536, 3, 196613, 65536, 3, 196614, 65536, 3, 196615, 65536, 3, 196616, 65536, 3, 196617, 65536, 3, 196618, 196608, 3)
 
 [node name="MagicBall" parent="." instance=ExtResource("10_5uf2g")]
 position = Vector2(-201, -238)
+
+[connection signal="timeout" from="Player/Camera2D/Timer" to="Player/Camera2D" method="_on_timer_timeout"]

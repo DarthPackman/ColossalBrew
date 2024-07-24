@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://b4plpm52ycbli"]
 
 [ext_resource type="Texture2D" uid="uid://ds0qfj338ycfs" path="res://assets/sprites/Spell_20Projectile.png" id="1_est6x"]
-[ext_resource type="Script" path="res://magicSpell.gd" id="2_51p1a"]
+[ext_resource type="Script" path="res://scripts/magicSpell.gd" id="2_51p1a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4cba0"]
 atlas = ExtResource("1_est6x")
