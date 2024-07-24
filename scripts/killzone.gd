@@ -7,13 +7,14 @@ var restart = false
 
 
 func _on_body_entered(body):
-	if not insta_death:
-		restart = body.take_damage(dmg)
-		if restart:
-			Engine.time_scale = 0.5
+	if body.is_in_group("player"):
+		if not insta_death:
+			restart = body.take_damage(dmg)
+			if restart:
+				Engine.time_scale = 0.5
+				timer.start()
+		else:
 			timer.start()
-	else:
-		timer.start()
 
 func _on_timer_timeout():
 	Engine.time_scale = 1
