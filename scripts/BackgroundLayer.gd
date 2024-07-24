@@ -1,6 +1,8 @@
 extends ParallaxLayer
 
 @export var BACKGROUND_SPEED = -15
+var moving = true
+var stop_time_left = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -9,4 +11,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	self.motion_offset.x += BACKGROUND_SPEED * delta
+	if ! moving:
+		stop_time_left -= delta
+		if stop_time_left <= 0:
+			moving = true
+	else:
+		self.motion_offset.x += BACKGROUND_SPEED * delta
+	
+
+
+func _on_timer_timeout():
+	moving = false
+	stop_time_left = 1

@@ -44,7 +44,6 @@ func _physics_process(delta):
 		if dodge_time_left <= 0:
 			is_dodging = false
 			set_collision_layer_value(1, true)
-			set_collision_layer_value(5, false)
 
 	if is_attacking:
 		attack_time_left -= delta
@@ -60,7 +59,6 @@ func _physics_process(delta):
 			invincible = false
 			animated_sprite.modulate = Color(1, 1, 1, 1)  # Reset sprite color
 			set_collision_layer_value(1, true)
-			set_collision_layer_value(5, false)
 
 	# Add the gravity.
 	if not is_on_floor():
@@ -102,7 +100,6 @@ func _physics_process(delta):
 		animated_sprite.play("Dodge")
 		# Disable collision with enemies but not with the map
 		set_collision_layer_value(1, false)
-		set_collision_layer_value(5, true)
 
 		if animated_sprite.flip_h:
 			velocity.x = -ROLL_VELOCITY

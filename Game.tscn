@@ -326,10 +326,14 @@ texture_repeat = 2
 texture = ExtResource("6_51j0d")
 centered = false
 
+[node name="Timer" type="Timer" parent="Mountain Parallax"]
+wait_time = 15.0
+autostart = true
+
 [node name="Player" parent="." instance=ExtResource("1_ae0mh")]
 z_index = 5
 position = Vector2(2, 64)
-collision_layer = 1
+collision_layer = 17
 collision_mask = 6
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -372,4 +376,5 @@ layer_2/tile_data = PackedInt32Array()
 [node name="MagicBall" parent="." instance=ExtResource("10_5uf2g")]
 position = Vector2(-201, -238)
 
+[connection signal="timeout" from="Mountain Parallax/Timer" to="Mountain Parallax/ParallaxLayer2" method="_on_timer_timeout"]
 [connection signal="timeout" from="Player/Camera2D/Timer" to="Player/Camera2D" method="_on_timer_timeout"]
