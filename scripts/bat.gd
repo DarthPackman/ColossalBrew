@@ -11,6 +11,7 @@ var is_dead = false
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var raycast_right = $"Raycast Right"
 @onready var raycast_left = $"Raycast Left"
+@onready var collision_shape_2d = $hurtbox/CollisionShape2D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -31,14 +32,19 @@ func take_damage(dmg):
 	
 
 	if health <= 0:
-		die()
+		is_dead = true
+		collision_shape_2d.set_deferred("disabled", true)
+		animated_sprite.play("Death")
+		
 
 func die():
-	is_dead = true
-	animated_sprite.play("Death")  # Play a death animation
 	queue_free()  # Remove the enemy from the scene after the animation
 
 
 func _on_hurtbox_area_entered(area):
 	if area.is_in_group("Sword"):
 		take_damage(5)
+
+
+func _on_animated_sprite_2d_animation_finished():
+	die()

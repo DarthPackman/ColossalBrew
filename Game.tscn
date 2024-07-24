@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b8kf0s1rf6f4o"]
+[gd_scene load_steps=14 format=3 uid="uid://b8kf0s1rf6f4o"]
 
 [ext_resource type="PackedScene" uid="uid://6gf80lsw7as" path="res://player.tscn" id="1_ae0mh"]
 [ext_resource type="Script" path="res://BackgroundLayer.gd" id="2_br8ae"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bt5ijvpv76nip" path="res://assets/sprites/mountain/Backgrounds LUSH/Mountain_Falls_distant_lands_2_LUSH.png" id="6_51j0d"]
 [ext_resource type="Script" path="res://ForegroundLayer.gd" id="7_kuxtd"]
 [ext_resource type="Texture2D" uid="uid://dkn33vy3awpvm" path="res://assets/sprites/mountain/Mountain_Falls_main_layer_LUSH.png" id="9_usgr3"]
+[ext_resource type="PackedScene" uid="uid://b4plpm52ycbli" path="res://magicSpell.tscn" id="10_5uf2g"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qp64g"]
 normal = Vector2(-0.0108689, -0.999941)
@@ -365,3 +366,6 @@ position = Vector2(-4, 20)
 tile_set = SubResource("TileSet_88ihr")
 format = 2
 layer_0/tile_data = PackedInt32Array(262134, 0, 3, 262135, 65536, 3, 262136, 65536, 3, 262137, 65536, 3, 262138, 65536, 3, 262139, 65536, 3, 262140, 65536, 3, 262141, 65536, 3, 262142, 65536, 3, 262143, 65536, 3, 196608, 65536, 3, 196609, 65536, 3, 196610, 65536, 3, 196611, 65536, 3, 196612, 65536, 3, 196613, 65536, 3, 196614, 65536, 3, 196615, 65536, 3, 196616, 65536, 3, 196617, 65536, 3, 196618, 196608, 3)
+
+[node name="MagicBall" parent="." instance=ExtResource("10_5uf2g")]
+position = Vector2(-201, -238)

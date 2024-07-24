@@ -915,6 +915,8 @@ height = 18.0
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 3
 script = ExtResource("1_b2ko8")
+health = null
+attack_damage = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -15)
