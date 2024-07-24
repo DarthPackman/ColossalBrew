@@ -83,7 +83,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_6tnk7")
 }],
 "loop": true,
-"name": &"Idle",
+"name": &"Fly",
 "speed": 5.0
 }]
 
@@ -110,10 +110,8 @@ script = ExtResource("1_11lcf")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_217ng")
-animation = &"Death"
-autoplay = "Idle"
-frame = 4
-frame_progress = 1.0
+animation = &"Fly"
+autoplay = "Fly"
 
 [node name="hurtbox" parent="." groups=["Enemy"] instance=ExtResource("2_uexfd")]
 collision_layer = 4
