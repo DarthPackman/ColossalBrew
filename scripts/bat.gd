@@ -1,7 +1,7 @@
 extends Node2D
 
 const SPEED = 50
-var direction = 1
+@export var direction = 1
 
 
 
@@ -13,6 +13,11 @@ var is_dead = false
 @onready var raycast_left = $"Raycast Left"
 @onready var ray_cast_down = $RayCastDown
 @onready var collision_shape_2d = $hurtbox/CollisionShape2D
+@export var flipH = false
+
+func _ready():
+	animated_sprite.flip_h = flipH
+	direction 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
