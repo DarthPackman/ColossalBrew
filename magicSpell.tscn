@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://b4plpm52ycbli"]
+[gd_scene load_steps=27 format=3 uid="uid://b4plpm52ycbli"]
 
 [ext_resource type="Texture2D" uid="uid://ds0qfj338ycfs" path="res://assets/sprites/Spell_20Projectile.png" id="1_est6x"]
 [ext_resource type="Script" path="res://scripts/magicSpell.gd" id="2_51p1a"]
+[ext_resource type="AudioStream" uid="uid://m8dxidr8di5" path="res://MagicFX/25_Wind_01.wav" id="3_br2hu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4cba0"]
 atlas = ExtResource("1_est6x")
@@ -179,3 +180,7 @@ script = ExtResource("2_51p1a")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_lgceo")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_br2hu")
+autoplay = true

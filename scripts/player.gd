@@ -7,6 +7,9 @@ const ROLL_VELOCITY = 250.0
 
 @export var health = 5
 @export var attack_damage = 10
+@onready var sword_swing = $SwordSwing
+@onready var walk_sound = $WalkSound
+
 
 @onready var attack_area_left = $AnimatedSprite2D/AttackArea2
 @onready var attack_area_right = $AnimatedSprite2D/AttackArea
@@ -19,6 +22,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_dodging = false
 var dodge_timer = 0.25  # Duration of the dodge roll
 var dodge_time_left = 0.0
+var is_moving = false
+var walk_timer = 0.18
 
 var is_attacking = false
 var is_melee = false
@@ -78,6 +83,8 @@ func _physics_process(delta):
 		else:
 			attack_box_2.set_deferred("disabled", false)
 		animated_sprite.play("BackSwing")
+		sword_swing.play()
+		
 		
 	if Input.is_action_just_pressed("magicAttack") and is_on_floor() and not is_dodging and controls_enabled:
 		is_magic = true
@@ -124,6 +131,11 @@ func _physics_process(delta):
 				animated_sprite.play("Idle")
 			else:
 				animated_sprite.play("Run")
+				walk_timer -= delta
+				if walk_timer <= 0:
+					walk_sound.play()
+					walk_timer = 0.18
+				
 		else:
 			animated_sprite.play("Jump")
 
