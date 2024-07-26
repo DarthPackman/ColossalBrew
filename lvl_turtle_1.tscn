@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=3 uid="uid://lruvlm0vglq5"]
+[gd_scene load_steps=100 format=3 uid="uid://lruvlm0vglq5"]
 
 [ext_resource type="PackedScene" uid="uid://bd6ly087tsgeb" path="res://mountain_set.tscn" id="1_lmq4b"]
 [ext_resource type="PackedScene" uid="uid://6gf80lsw7as" path="res://player.tscn" id="2_5mbo2"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c4v7x4l2na2gj" path="res://assets/sprites/mountain/Backgrounds LUSH/Mountain_Falls_distant_lands_1_LUSH.png" id="6_by2c7"]
 [ext_resource type="Texture2D" uid="uid://bt5ijvpv76nip" path="res://assets/sprites/mountain/Backgrounds LUSH/Mountain_Falls_distant_lands_2_LUSH.png" id="7_dylyg"]
 [ext_resource type="Script" path="res://Camera2D.gd" id="9_ctd88"]
+[ext_resource type="AudioStream" uid="uid://m8dxidr8di5" path="res://MagicFX/25_Wind_01.wav" id="10_jvjn2"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qo5h4"]
 
@@ -811,6 +812,10 @@ randomStrength = 15.0
 [node name="Timer" type="Timer" parent="Player/Camera2D"]
 wait_time = 15.0
 autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(1.00403, 1)
+stream = ExtResource("10_jvjn2")
 
 [connection signal="timeout" from="Mountain Parallax/Timer" to="Mountain Parallax/ParallaxLayer2" method="_on_timer_timeout"]
 [connection signal="timeout" from="Player/Camera2D/Timer" to="Player/Camera2D" method="_on_timer_timeout"]

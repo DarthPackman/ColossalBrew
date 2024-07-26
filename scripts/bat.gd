@@ -46,7 +46,6 @@ func take_damage(dmg):
 func die():
 	queue_free()  # Remove the enemy from the scene after the animation
 
-
 func _on_hurtbox_area_entered(area):
 	if area.is_in_group("Sword"):
 		take_damage(5)

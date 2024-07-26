@@ -10,6 +10,9 @@ const ROLL_VELOCITY = 250.0
 @onready var sword_swing = $SwordSwing
 @onready var walk_sound = $WalkSound
 
+@onready var audio_stream_player_2d = $"../AudioStreamPlayer2D"
+@onready var jump_sound = $JumpSound
+@onready var roll_sound = $RollSound
 
 @onready var attack_area_left = $AnimatedSprite2D/AttackArea2
 @onready var attack_area_right = $AnimatedSprite2D/AttackArea
@@ -72,6 +75,7 @@ func _physics_process(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor() and not is_dodging and controls_enabled:
 		velocity.y = JUMP_VELOCITY
+		jump_sound.play()
 
 	# Handle attack
 	if Input.is_action_just_pressed("attack") and is_on_floor() and not is_dodging and controls_enabled:
@@ -86,13 +90,14 @@ func _physics_process(delta):
 		sword_swing.play()
 		
 		
-	if Input.is_action_just_pressed("magicAttack") and is_on_floor() and not is_dodging and controls_enabled:
+	if Input.is_action_just_pressed("magicAttack") and not is_dodging and controls_enabled:
 		is_magic = true
 		is_attacking = true
 		attack_time_left = attack_time
 		animated_sprite.play("Magic")
 		var magic = magic_ball.instantiate()
 		get_tree().current_scene.add_child(magic)
+		audio_stream_player_2d.play()
 		if animated_sprite.flip_h:
 			magic.global_position = global_position - Vector2(3, 10)  # Adjust the offset as needed
 			magic.set_direction(Vector2.LEFT)
@@ -105,6 +110,7 @@ func _physics_process(delta):
 		is_dodging = true
 		dodge_time_left = dodge_timer
 		animated_sprite.play("Dodge")
+		roll_sound.play()
 		# Disable collision with enemies but not with the map
 		set_collision_layer_value(1, false)
 
@@ -138,6 +144,7 @@ func _physics_process(delta):
 				
 		else:
 			animated_sprite.play("Jump")
+			
 
 	# Handle movement if not dodging
 	if not is_dodging and controls_enabled:

@@ -1,9 +1,11 @@
-[gd_scene load_steps=125 format=3 uid="uid://6gf80lsw7as"]
+[gd_scene load_steps=127 format=3 uid="uid://6gf80lsw7as"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_b2ko8"]
 [ext_resource type="Texture2D" uid="uid://c0vmjk2v0idk2" path="res://assets/sprites/Adventurer Sprite Sheet v1.6.png" id="1_lnope"]
 [ext_resource type="AudioStream" uid="uid://c6mttklp4482s" path="res://RPG Sound Pack/battle/swing.wav" id="3_0mr6d"]
 [ext_resource type="AudioStream" uid="uid://oxmy0uqdnbj1" path="res://RPG Sound Pack/Footstep/02-footstep.ogg" id="4_8q0ho"]
+[ext_resource type="AudioStream" uid="uid://d3cvo3t87f81h" path="res://JumpSoundsMan/jumppp11.ogg" id="5_bm6vs"]
+[ext_resource type="AudioStream" uid="uid://o1akb6gxp0cv" path="res://JumpSoundsMan/jumpland.wav" id="6_e53g3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rdobn"]
 atlas = ExtResource("1_lnope")
@@ -949,7 +951,15 @@ stream = ExtResource("3_0mr6d")
 [node name="WalkSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_8q0ho")
 
-[connection signal="area_entered" from="AnimatedSprite2D/AttackArea" to="." method="_on_attack_area_area_entered"]
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_bm6vs")
+
+[node name="RollSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_e53g3")
+volume_db = -11.742
+pitch_scale = 0.65
+
 [connection signal="area_entered" from="AnimatedSprite2D/AttackArea" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_entered" from="AnimatedSprite2D/AttackArea2" to="." method="_on_attack_area_area_entered"]
+[connection signal="area_entered" from="AnimatedSprite2D/AttackArea" to="." method="_on_attack_area_area_entered"]
 [connection signal="area_entered" from="AnimatedSprite2D/AttackArea2" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="AnimatedSprite2D/AttackArea2" to="." method="_on_attack_area_area_entered"]

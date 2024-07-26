@@ -118,7 +118,7 @@ collision_layer = 4
 collision_mask = 1
 dmg = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" groups=["Enemy"]]
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_vtrdu")
 script = SubResource("GDScript_np4c1")
