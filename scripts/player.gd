@@ -4,6 +4,8 @@ const SPEED = 150.0
 const JUMP_VELOCITY = -275.0
 const ROLL_VELOCITY = 250.0
 @onready var magic_ball = preload("res://magicSpell.tscn")
+@onready var timer = $Camera2D/Timer
+@onready var stomp_sound = $Camera2D/StompSound
 
 @export var health = 5
 @export var attack_damage = 10
@@ -44,8 +46,11 @@ var currentAttackArea = attack_area_right
 func _ready():
 	attack_box_1.set_deferred("disabled", true)
 	attack_box_2.set_deferred("disabled", true)
+	
+	
 
 func _physics_process(delta):
+	
 	# Handle dodge roll timing
 	if is_dodging:
 		dodge_time_left -= delta

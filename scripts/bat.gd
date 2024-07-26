@@ -14,6 +14,7 @@ var is_dead = false
 @onready var ray_cast_down = $RayCastDown
 @onready var collision_shape_2d = $hurtbox/CollisionShape2D
 @export var flipH = false
+@onready var death_sound = $deathSound
 
 func _ready():
 	animated_sprite.flip_h = flipH
@@ -40,6 +41,7 @@ func take_damage(dmg):
 	if health <= 0:
 		is_dead = true
 		collision_shape_2d.set_deferred("disabled", true)
+		death_sound.play()
 		animated_sprite.play("Death")
 		
 
