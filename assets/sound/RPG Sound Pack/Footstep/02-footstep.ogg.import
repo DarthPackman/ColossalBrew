@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://oxmy0uqdnbj1"
+path="res://.godot/imported/02-footstep.ogg-d4a6f3929eb8904a3d159cc02e82c292.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sound/RPG Sound Pack/Footstep/02-footstep.ogg"
+dest_files=["res://.godot/imported/02-footstep.ogg-d4a6f3929eb8904a3d159cc02e82c292.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

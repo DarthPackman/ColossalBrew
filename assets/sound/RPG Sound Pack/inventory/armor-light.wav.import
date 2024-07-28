@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://chm1ipu6sym73"
+path="res://.godot/imported/armor-light.wav-6cfb60b14d3f14cf4397c153e3c75714.sample"
+
+[deps]
+
+source_file="res://assets/sound/RPG Sound Pack/inventory/armor-light.wav"
+dest_files=["res://.godot/imported/armor-light.wav-6cfb60b14d3f14cf4397c153e3c75714.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

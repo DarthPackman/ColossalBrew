@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cgdjnoeusofoo"
+path="res://.godot/imported/chainmail2.wav-b6ea5b13c2893a9182119b1552273431.sample"
+
+[deps]
+
+source_file="res://assets/sound/RPG Sound Pack/inventory/chainmail2.wav"
+dest_files=["res://.godot/imported/chainmail2.wav-b6ea5b13c2893a9182119b1552273431.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

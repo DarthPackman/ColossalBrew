@@ -18,7 +18,7 @@ var is_dead = false
 
 func _ready():
 	animated_sprite.flip_h = flipH
-	direction 
+	direction = direction
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
