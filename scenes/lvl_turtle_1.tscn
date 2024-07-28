@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://lruvlm0vglq5"]
+[gd_scene load_steps=109 format=3 uid="uid://lruvlm0vglq5"]
 
 [ext_resource type="Script" path="res://scenes/lvl_turtle_1.gd" id="1_icr64"]
 [ext_resource type="PackedScene" uid="uid://bd6ly087tsgeb" path="res://scenes/mountain_set.tscn" id="1_lmq4b"]
@@ -12,7 +12,9 @@
 [ext_resource type="Script" path="res://scripts/Camera2D.gd" id="9_ctd88"]
 [ext_resource type="AudioStream" uid="uid://m8dxidr8di5" path="res://assets/sound/MagicFX/25_Wind_01.wav" id="10_jvjn2"]
 [ext_resource type="AudioStream" uid="uid://bf7tiqeis3pdi" path="res://assets/sound/JumpSoundsMan/stompsound.wav" id="10_piuym"]
+[ext_resource type="Texture2D" uid="uid://cpucigdw7a1d3" path="res://assets/sprites/Heart_Red_1.png" id="13_lcivu"]
 [ext_resource type="PackedScene" uid="uid://btp5qgtjsb7os" path="res://scenes/pause_menu.tscn" id="13_yy0h0"]
+[ext_resource type="Theme" uid="uid://ciejrlroldsi0" path="res://themes/button.tres" id="14_xursi"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qo5h4"]
 
@@ -897,6 +899,24 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 size_flags_horizontal = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="Player/Camera2D"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -49.0
+offset_top = -89.0
+offset_right = 49.0
+offset_bottom = -35.0
+grow_horizontal = 2
+
+[node name="HeartRed1" type="Sprite2D" parent="Player/Camera2D/MarginContainer"]
+position = Vector2(-9, 26)
+texture = ExtResource("13_lcivu")
+
+[node name="Label" type="Label" parent="Player/Camera2D/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("14_xursi")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 scale = Vector2(1.00403, 1)

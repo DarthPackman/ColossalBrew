@@ -11,6 +11,7 @@ const ROLL_VELOCITY = 250.0
 @export var attack_damage = 10
 @onready var sword_swing = $SwordSwing
 @onready var walk_sound = $WalkSound
+@onready var hud_health = $Camera2D/MarginContainer/Label
 
 @onready var audio_stream_player_2d = $"../AudioStreamPlayer2D"
 @onready var jump_sound = $JumpSound
@@ -46,6 +47,7 @@ var currentAttackArea = attack_area_right
 func _ready():
 	attack_box_1.set_deferred("disabled", true)
 	attack_box_2.set_deferred("disabled", true)
+	hud_health.text = str(health)
 
 func _physics_process(delta):
 	# Handle dodge roll timing
@@ -166,6 +168,7 @@ func take_damage(dmg):
 	invincible_time_left = invincible_duration
 	animated_sprite.modulate = Color(1, 1, 1, 0.5)
 	health -= dmg
+	hud_health.text = str(health)
 	animated_sprite.play("Wimper")
 
 	if health <= 0:
