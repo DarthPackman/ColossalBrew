@@ -47,7 +47,7 @@ var currentAttackArea = attack_area_right
 func _ready():
 	attack_box_1.set_deferred("disabled", true)
 	attack_box_2.set_deferred("disabled", true)
-	hud_health.text = str(health)
+	#hud_health.text = str(health)
 
 func _physics_process(delta):
 	# Handle dodge roll timing

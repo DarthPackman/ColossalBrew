@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=3 uid="uid://lruvlm0vglq5"]
+[gd_scene load_steps=110 format=3 uid="uid://lruvlm0vglq5"]
 
 [ext_resource type="Script" path="res://scenes/lvl_turtle_1.gd" id="1_icr64"]
 [ext_resource type="PackedScene" uid="uid://bd6ly087tsgeb" path="res://scenes/mountain_set.tscn" id="1_lmq4b"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cpucigdw7a1d3" path="res://assets/sprites/Heart_Red_1.png" id="13_lcivu"]
 [ext_resource type="PackedScene" uid="uid://btp5qgtjsb7os" path="res://scenes/pause_menu.tscn" id="13_yy0h0"]
 [ext_resource type="Theme" uid="uid://ciejrlroldsi0" path="res://themes/button.tres" id="14_xursi"]
+[ext_resource type="PackedScene" uid="uid://bc3d6vyg5k4dm" path="res://scenes/obj_checkpoint.tscn" id="16_xu1wm"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qo5h4"]
 
@@ -875,6 +876,9 @@ collision_layer = 17
 collision_mask = 6
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, -42)
+limit_left = 0
+limit_right = 5000
 script = ExtResource("9_ctd88")
 randomStrength = 15.0
 
@@ -939,6 +943,23 @@ offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.835294, 0.992157, 1, 1)
+
+[node name="checkpoints" type="Node" parent="."]
+
+[node name="obj_checkpoint" parent="checkpoints" instance=ExtResource("16_xu1wm")]
+position = Vector2(273, -639)
+
+[node name="obj_checkpoint2" parent="checkpoints" instance=ExtResource("16_xu1wm")]
+position = Vector2(674, -1519)
+
+[node name="obj_checkpoint3" parent="checkpoints" instance=ExtResource("16_xu1wm")]
+position = Vector2(2196, -1456)
+
+[node name="obj_checkpoint4" parent="checkpoints" instance=ExtResource("16_xu1wm")]
+position = Vector2(2513, -1967)
+
+[node name="obj_checkpoint5" parent="checkpoints" instance=ExtResource("16_xu1wm")]
+position = Vector2(3619, -2655)
 
 [connection signal="timeout" from="Mountain Parallax/Timer" to="Mountain Parallax/ParallaxLayer2" method="_on_timer_timeout"]
 [connection signal="timeout" from="Player/Camera2D/Timer" to="Player/Camera2D" method="_on_timer_timeout"]
