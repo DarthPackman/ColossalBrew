@@ -5,7 +5,7 @@ var paused = false
 
 func _ready():
 	if SngCheckpoints.startPoint:
-		$Player.global_position = SngCheckpoints.global_position
+		$Player.global_position = SngCheckpoints.startPoint
 		#STARTPOINT MUST BE MANUALLY CLEARED WHEN EXITING LEVEL
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
